@@ -1,0 +1,17 @@
+// DSCH 2.7a
+// 5/30/2016 5:48:11 PM
+// C:\Users\Koushik\Desktop\VLSI-EXPORT-DSH2-\CMOS-INVERTER.sch
+
+module CMOS-INVERTER( in,out);
+ input in;
+ output out;
+ pmos #(17) pmos(out,vdd,in); // 2.0u 0.12u
+ nmos #(17) nmos(out,vss,in); // 1.0u 0.12u
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 in=~in;
+
+// Simulation parameters
+// in CLK 10 10
