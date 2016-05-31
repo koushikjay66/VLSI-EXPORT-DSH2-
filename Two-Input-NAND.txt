@@ -1,0 +1,21 @@
+// DSCH 2.7a
+// 6/1/2016 1:06:21 AM
+// C:\Users\Koushik\Desktop\VLSI-EXPORT-DSH2-\Two-Input-NAND.sch
+
+module Two-Input-NAND( a,b,out1);
+ input a,b;
+ output out1;
+ pmos #(24) pmos(out1,vdd,a); // 2.0u 0.12u
+ pmos #(24) pmos(out1,vdd,b); // 2.0u 0.12u
+ nmos #(10) nmos(w4,vss,b); // 1.0u 0.12u
+ nmos #(24) nmos(out1,w4,a); // 1.0u 0.12u
+endmodule
+
+// Simulation parameters in Verilog Format
+always
+#1000 a=~a;
+#2000 b=~b;
+
+// Simulation parameters
+// a CLK 10 10
+// b CLK 20 20
